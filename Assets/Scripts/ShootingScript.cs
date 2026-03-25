@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ShootingScript : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject bullet;
 
