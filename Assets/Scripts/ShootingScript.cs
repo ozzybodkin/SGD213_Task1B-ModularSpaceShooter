@@ -20,25 +20,19 @@ public class ShootingScript : MonoBehaviour
             + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Shoot(float currentTime)
     {
-        if (Input.GetButton("Fire1"))
+        // Have a delay so we don't shoot too many bullets
+        if (currentTime - lastFiredTime > fireDelay)
         {
-            float CurrentTime = Time.time;
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
 
-            // Have a delay so we don't shoot too many bullets
-            if (CurrentTime - lastFiredTime > fireDelay)
-            {
-                Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
+            Instantiate(bullet, spawnPosition, transform.rotation);
 
-                Instantiate(bullet, spawnPosition, transform.rotation);
-
-                lastFiredTime = CurrentTime;
-            }
-
-            //print("Shoot!");
+            lastFiredTime = currentTime;
         }
+
+        //print("Shoot!");
     }
 
     /// <summary>
