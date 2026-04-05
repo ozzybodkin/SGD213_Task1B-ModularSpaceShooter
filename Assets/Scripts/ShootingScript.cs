@@ -31,7 +31,6 @@ public class ShootingScript : MonoBehaviour
 
             lastFiredTime = currentTime;
         }
-
         //print("Shoot!");
     }
 

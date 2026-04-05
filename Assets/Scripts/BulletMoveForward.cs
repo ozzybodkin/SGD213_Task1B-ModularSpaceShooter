@@ -3,25 +3,21 @@ using System.Collections;
 
 public class BulletMoveForward : MonoBehaviour {
 
-    private float acceleration = 50f;
+    MovementController movementController;
 
-    private float initialVelocity = 5f;
-
-    private Rigidbody2D ourRigidbody;
+    private bool direction = true;
 
     // Use this for initialization
     void Start()
     {
-        ourRigidbody = GetComponent<Rigidbody2D>();
+        movementController = GetComponent<MovementController>();
 
-        ourRigidbody.velocity = Vector2.up * initialVelocity;
+        movementController.SetInitialVelocity(direction);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 ForceToAdd = Vector2.up * acceleration * Time.deltaTime;
-
-        ourRigidbody.AddForce(ForceToAdd);
+        movementController.MoveForward(direction);
     }
 }

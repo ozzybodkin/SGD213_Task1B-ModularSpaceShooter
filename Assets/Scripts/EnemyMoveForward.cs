@@ -1,27 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMoveForward : MonoBehaviour {
+public class EnemyMoveForward : MonoBehaviour 
+{
 
-    private float acceleration = 75f;
+    MovementController movementController;
 
-    private float initialVelocity = 2f;
-
-    private Rigidbody2D ourRigidbody;
+    private bool direction = false;
 
     // Use this for initialization
     void Start()
     {
-        ourRigidbody = GetComponent<Rigidbody2D>();
+        movementController = GetComponent<MovementController>();
 
-        ourRigidbody.velocity = Vector2.down * initialVelocity;
+        movementController.SetInitialVelocity(direction);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 ForceToAdd = Vector2.down * acceleration * Time.deltaTime;
-
-        ourRigidbody.AddForce(ForceToAdd);
+        movementController.MoveForward(direction);
     }
 }

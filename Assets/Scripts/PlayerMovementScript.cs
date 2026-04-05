@@ -4,10 +4,8 @@ using System.Collections;
 public class PlayerMovementScript : MonoBehaviour 
 {
     // SerializeField exposes this value to the Editor, but not to other Scripts!
-    // It is "pseudo public"
-    // HorizontalPlayerAcceleration indicates how fast we accelerate Horizontally
-    [SerializeField]
-    private float f_horPlayAccel = 5000f;
+    // playerAcceleration indicates how fast we accelerate Horizontally
+    [SerializeField] private float playerAccelarate = 5000f;
 
     private Rigidbody2D rigidBody;
 
@@ -20,7 +18,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     public void MoveShip(float horizontalInput)
     {
-        Vector2 ForceToAdd = Vector2.right * horizontalInput * f_horPlayAccel * Time.deltaTime;
+        Vector2 ForceToAdd = Vector2.right * horizontalInput * playerAccelarate * Time.deltaTime;
         rigidBody.AddForce(ForceToAdd);
         //print(HorizontalInput);
     }

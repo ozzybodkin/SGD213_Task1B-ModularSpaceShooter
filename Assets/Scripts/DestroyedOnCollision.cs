@@ -10,14 +10,11 @@ public enum TagListType
 
 public class DestroyedOnCollision : MonoBehaviour
 {
-
-    [SerializeField]
-    private TagListType tagListType = TagListType.Blacklist;
+    [SerializeField] private TagListType tagListType = TagListType.Blacklist;
 
     // A list of tags which we use to determine whether to explode or not
     // Depending on the tagListType (Blacklist or Whitelist)
-    [SerializeField]
-    private List<string> tags;
+    [SerializeField] private List<string> tags;
 
     void OnTriggerEnter2D(Collider2D other)
     {
