@@ -9,6 +9,7 @@ public class Rotate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Rotates the object at a random speed
         GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-maximumSpinSpeed, maximumSpinSpeed);
     }
 }

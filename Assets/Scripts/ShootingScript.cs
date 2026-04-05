@@ -20,6 +20,7 @@ public class ShootingScript : MonoBehaviour
             + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
+    //Spawn in a bullet when the left mouse button has been pressed
     public void Shoot(float currentTime)
     {
         // Have a delay so we don't shoot too many bullets
@@ -31,17 +32,6 @@ public class ShootingScript : MonoBehaviour
 
             lastFiredTime = currentTime;
         }
-        //print("Shoot!");
+        //Debug.Log("Shoot!");
     }
-
-    /// <summary>
-    /// SampleMethod is a sample of how to use abstraction by
-    /// specification. It converts a provided integer to a float.
-    /// </summary>
-    /// <param name="number">any integer</param>
-    /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number) {
-        return number;
-    }
-
 }

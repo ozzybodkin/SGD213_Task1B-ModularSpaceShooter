@@ -16,6 +16,7 @@ public class PlayerMovementScript : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>(); 
     }
 
+    //Moves the player left or right depending on which button was pressed
     public void MoveShip(float horizontalInput)
     {
         Vector2 ForceToAdd = Vector2.right * horizontalInput * playerAccelarate * Time.deltaTime;

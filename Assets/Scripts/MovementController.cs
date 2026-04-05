@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    //The rate at which the object will increase in speed
     public float acceleration;
 
+    //Initial speed of the object
     public float initialVelocity;
 
     private Rigidbody2D ourRigidbody;
@@ -13,9 +15,11 @@ public class MovementController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Refrance to the objects rigidbody componemt
         ourRigidbody = GetComponent<Rigidbody2D>();
     }
 
+    //Sets the intial direction and velocity of the object once called
     public void SetInitialVelocity(bool direction)
     {
         if (direction == true)
@@ -28,6 +32,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    //Adds accelation in the direction the object was moving
     public void MoveForward(bool direction)
     {
         if (direction == true)
