@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EngineBase : MonoBehaviour
+public abstract class EngineBase : MonoBehaviour
 {
     // acceleration indicates how fast the enemy accelerates
     [SerializeField]
-    private float acceleration = 5000f;
+    protected float acceleration = 5000f;
 
     // local references
-    private Rigidbody2D ourRigidbody;
+    protected Rigidbody2D ourRigidbody;
 
     void Start()
     {
