@@ -8,8 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerInput : MonoBehaviour
 {
-
-    // local references
+    // local references to the PlayerMovement Script and the WeaponBase script
     private PlayerMovement playerMovement;
 
     private WeaponBase weapon;
@@ -26,6 +25,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    //Finds the components and sets them to the local refrances
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -34,12 +34,12 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        // read our horizontal input axis
+        // checks if the A,D, Left Arrow or Right Arrow keys have been pressed
         float horizontalInput = Input.GetAxis("Horizontal");
         // if movement input is not zero
         if (horizontalInput != 0.0f)
         {
-            // ensure our playerMovementScript is populated to avoid errors
+            // ensure our playerMovementScript is active
             if (playerMovement != null)
             {
                 // pass our movement input to our playerMovementScript
@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
         // if we press the Fire1 button
         if (Input.GetButton("Fire1"))
         {
-            // if our shootingScript is populated
+            // if our shootingScript is active
             if (weapon != null)
             {
                 // tell shootingScript to shoot
@@ -59,14 +59,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// SwapWeapon handles creating a new WeaponBase component based on the given weaponType. This
-    /// will popluate the newWeapon's controls and remove the existing weapon ready for usage.
-    /// </summary>
-    /// <param name="weaponType">The given weaponType to swap our current weapon to, this is an enum in WeaponBase.cs</param>
+    //Changes the type of weapon that the player currently has
     public void SwapWeapon(WeaponType weaponType)
     {
-        // make a new weapon dependent on the weaponType
+        // makes a weapon depending on the desired weapon type
         WeaponBase newWeapon = null;
         switch (weaponType)
         {

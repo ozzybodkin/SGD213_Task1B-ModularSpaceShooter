@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Pickup is an object aimed at passing weapon functionality to player objects. Depending on
-/// the specified weaponType, the Pickup will tell the player object what object it should now
-/// use as it's weapon.
+/// Swaps the players weapon
 /// </summary>
 public class Pickup : MonoBehaviour
 {
+    //This varible keeps track of the players current weapon type
     [SerializeField]
     public WeaponType weaponType;
 
+    //This fucntion is called when the pick up object collides with something
     void OnTriggerEnter2D(Collider2D col)
     {
+        //If the object that was collided with has the player tag the HandlePlayerPickup function is called
         if (col.gameObject.tag == "Player")
         {
             GameObject player = col.gameObject;
@@ -21,21 +22,7 @@ public class Pickup : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            GameObject player = col.gameObject;
-            HandlePlayerPickup(player);
-        }
-    }
-
-    /// <summary>
-    /// HandlePlayerPickup handles all of the actions after a player has been collided with.
-    /// It grabs the IWeapon component from the player, transfers all information to a
-    /// new IWeapon (based on the provided weaponType).
-    /// </summary>
-    /// <param name="player"></param>
+    //Swaps the players weapon
     private void HandlePlayerPickup(GameObject player)
     {
         // get the playerInput from the player

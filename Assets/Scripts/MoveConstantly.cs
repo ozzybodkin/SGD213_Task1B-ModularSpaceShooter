@@ -3,14 +3,15 @@ using System.Collections;
 
 /// <summary>
 /// MoveConstantly gives an object the ability to continuously move based on the
-/// specified direction, acceleration and initialVelocity variables.
+/// specified direction
 /// </summary>
 public class MoveConstantly : MonoBehaviour
 {
-
+    //This varible stores the acceleration of the object
     [SerializeField]
     private float acceleration = 100f;
 
+    //This varible stores the initial velocity of the object
     [SerializeField]
     private float initialVelocity = 10f;
 
@@ -18,31 +19,34 @@ public class MoveConstantly : MonoBehaviour
     // our direction to move in
     private Vector2 direction = new Vector2(0, 1);
 
-    /// <summary>
-    /// Direction provides access to the direction variable used to direct the movement of our object.
-    /// It is expected that when setting the direction, the provided Vector2 is a unit vector. If not,
-    /// it will be automatically normalised.
-    /// </summary>
-    public Vector2 Direction {
-        get {
+    //Sets the direction varible to a Vector if its not already one
+    public Vector2 Direction 
+    {
+        get 
+        {
             return direction;
         }
         set {
-            if (value.magnitude == 1) {
+            if (value.magnitude == 1) 
+            {
                 direction = value;
-            } else {
+            } 
+            else 
+            {
                 direction = value.normalized;
             }
         }
     }
 
-    // local references
+    // local references to the rigidbody component
     private Rigidbody2D ourRigidbody;
 
     void Start()
     {
+        //Finds the components and sets them to the local refrances
         ourRigidbody = GetComponent<Rigidbody2D>();
 
+        //Sets the velocity of the object
         ourRigidbody.velocity = direction * initialVelocity;
     }
 

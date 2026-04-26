@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIMoveAndShoot : MonoBehaviour {
+public class AIMoveAndShoot : MonoBehaviour 
+{
 
-    // state
+    // The direction the enemy will move
     private Vector2 movementDirection;
 
-    // local references
+    // Refrances to the EnemyMovement script and the WeaponBase script
     private EnemyMovement enemyMovement;
     private WeaponBase weapon;
 
-    void Start() {
-        // populate our local references
+    void Start() 
+    {
+        // Tells the varibels where the scripts they are should be refrancing are
         enemyMovement = GetComponent<EnemyMovement>();
         weapon = GetComponent<WeaponBase>();
 
@@ -23,13 +25,14 @@ public class AIMoveAndShoot : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update () 
+    {
         // move our enemy if we have a EnemyMovement component attached
         if (enemyMovement != null) {
             enemyMovement.MoveEnemy(movementDirection);
         }
 
-        // shoot if we have a IWeapon component attached
+        // shoot if we have a WeaponBase component attached
         if (weapon != null) {
             weapon.Shoot();
         }
