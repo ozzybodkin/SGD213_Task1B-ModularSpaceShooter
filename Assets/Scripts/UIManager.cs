@@ -10,9 +10,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider sldPlayerHealth;
 
-    [SerializeField]
-    private Slider sldEnemyHealth;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +23,5 @@ public class UIManager : MonoBehaviour
     public void UpdatePlayerHealthSlider(float percentage) 
     {
         sldPlayerHealth.value = percentage;
-    }
-
-    public void UpdateEnemyHealthSlider(float percentage)
-    {
-        sldEnemyHealth.value = percentage;
     }
 }

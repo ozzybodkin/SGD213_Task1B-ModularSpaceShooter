@@ -32,8 +32,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         currentHealth -= damageAmount;
 
-        //UIManager.instance.UpdateEnemyHealthSlider((float)currentHealth / (float)maxHealth);
-
         if (currentHealth <= 0)
         {
             Debug.Log("Die");
