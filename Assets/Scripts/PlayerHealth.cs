@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         currentHealth -= damageAmount;
 
-        UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
+        //UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
 
         if (currentHealth <= 0)
         {
