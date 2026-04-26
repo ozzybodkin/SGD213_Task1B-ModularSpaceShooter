@@ -24,6 +24,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void Heal(int healingAmount)
     {
         currentHealth += healingAmount;
+
+        UIManager.instance.UpdatePlayerHealthSlider(currentHealth);
+
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
