@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
+    //Sets the players haealth bar to the same value as their current health
     public void UpdatePlayerHealthSlider(float percentage) 
     {
         sldPlayerHealth.value = percentage;

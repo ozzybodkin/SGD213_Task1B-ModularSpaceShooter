@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
+    //Varible to Track the players current health
     [SerializeField]
     protected int currentHealth;
     public int CurrentHealth { get { return currentHealth; } }
 
+    //Varible to Track the players max health
     [SerializeField]
     protected int maxHealth;
     public int MaxHealth { get { return maxHealth; } }
 
     void Start()
     {
+        //Sets the current health of the players to full when the game starts
         currentHealth = maxHealth;
     }
 
     // <summary>
-    /// Heal handles the functionality of receiving health
+    /// Heal restores the players health
     /// </summary>
-    /// <param name="healingAmount">The amount of health to gain, this value should be positive</param>
     public void Heal(int healingAmount)
     {
         currentHealth += healingAmount;
@@ -33,10 +35,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
     }
 
-    /// <summary>
-    /// TakeDamage handles the functionality for taking damage
-    /// </summary>
-    /// <param name="damageAmount">The amount of damage to lose, this value should be positive</param>
+    //A function that runs when the player takes damage it tracks the damage
+    //and runs the Die function if the players health reaches 0
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;

@@ -13,6 +13,8 @@ public class DetectCollisionBase : MonoBehaviour
     [SerializeField]
     private List<string> tags;
 
+    //this functions detects when the gameobject collides with a differnt game
+    //object that has a collider and is not a trigger
     void OnCollisionEnter2D(Collision2D other) 
     {
         bool tagInList = tags.Contains(other.gameObject.tag);
@@ -29,6 +31,8 @@ public class DetectCollisionBase : MonoBehaviour
         }
     }
 
+    //this functions detects when the gameobject collides with a differnt game
+    //object that has a collider and is a trigger
     void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
         bool tagInList = tags.Contains(other.gameObject.tag);
